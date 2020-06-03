@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>Slider App</h1>
+
+    <span id="nextButton" class="step-button">Next
+      <svg class="bi bi-chevron-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+    </span>
+    
+    <span id="prevButton" class="step-button d-none">
+      <svg class="bi bi-chevron-left" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+      </svg>
+      Prev
+    </span>
+
+    <!-- set slider items -->
+    <div class="create-slider-wrapper set-slider-items">
+      <h5>Slider Items</h5>
+      <small>Add the elements that will appear in the slider</small>
+      <hr>
+      <button type="button" class="btn btn-outline-light col-4" id="addImageButton"> + Add Image</button>
+      <button type="button" class="btn btn-outline-light ml-3 col-4" id="addTextButton"> + Add Text</button>
+
+      <input type="text" id="addImageInput" class="form-control mt-4 d-none" placeholder="Image Link">
+      <textarea placeholder="Text" class="form-control mt-4 d-none" id="addTextInput" rows="3"></textarea>
+
+      <button class="btn btn-light col-4 mt-5 d-none" id="createItemButton">Create Item</button>
+
+      <!-- it will show when created item  -->
+      <div class="items-wrapper mt-5 col-12 d-none">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- configure slider -->
+    <div class="create-slider-wrapper slider-settings d-none">
+      <h5>Slider Settings</h5>
+      <hr>
+      <small>Configure and customize your slider</small>
+      <div class="form-check mt-3">
+        <label class="form-check-label">
+          <input type="checkbox" id="infinite" class="form-check-input">
+          Infinite
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" id="arrows" class="form-check-input">
+          Arrows
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" id="autoPlay" class="form-check-input">
+          Auto Play
+        </label>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-number-input" class="col-3 col-form-label">Slides To Show</label>
+        <div class="col-3">
+          <input class="form-control" id="slidesToShow" type="number" value="3">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-number-input" class="col-3 col-form-label">Slides To Scroll</label>
+        <div class="col-3">
+          <input class="form-control" id="slidesToScroll" type="number" value="3">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-number-input" class="col-3 col-form-label">Slides Speed</label>
+        <div class="col-3">
+          <input class="form-control" id="slidesSpeed" type="number" value="1000">
+        </div>
+      </div>
+
+      <button class="btn btn-light col-3 mt-5" id="createButton">Create</button>
+
+    </div>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script src="addItem.js"></script>
+  <script src="slider.js"></script>
+  <script src="app.js"></script>
+
+</body>
+
+</html>
